@@ -12,18 +12,43 @@ app.get("/", (req, res) => {
 });
 
 app.get("/BNPL/checkcredit", (req, res) => {
-  res.json({
-    statusText: "200",
-    message: "OK",
-    result: {
-      customerID: "MGM-011956",
-      creditLimit: 50000,
-      statusBNPL: "REGISTER",
-      creditRemain: 26000,
-      creditSpent: 24000,
-    },
-    optional: null,
-  });
+  const customerId = req.query.customerID;
+  if (customerId === "MGM-011956") {
+    res.json({
+      statusText: "003",
+      message: "REGISTER",
+      result: {
+        customerID: "MGM-011956",
+        accountNumber: "MGMBNPL011956",
+        balance: "20000.0",
+        outstandingBalance: "40000.0",
+        creditLimit: "60000.0",
+        transactionDate: "20220116163022",
+      },
+      optional: null,
+    });
+  } else if (customerId === "MGM-011957") {
+    res.json({
+      statusText: "001",
+      message: "PENDING",
+      result: null,
+      optional: null,
+    });
+  } else if (customerId === "MGM-011958") {
+    res.json({
+      statusText: "002",
+      message: "WHITELISE",
+      result: null,
+      optional: null,
+    });
+  } else if (customerId === "MGM-011959") {
+    res.json({
+      statusText: "004",
+      message: "BLACKLIST",
+      result: null,
+      optional: null,
+    });
+  }
 });
 
 app.get("/BNPL/CheckRegister", (req, res) => {
