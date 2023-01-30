@@ -4,10 +4,10 @@ const port = 3000;
 
 app.use(express.json());
 
-app.get("/BNPL/checkcredit", (req, res) => {
+app.get("/", (req, res) => {
   res.json({
     statusText: "200",
-    message: "API is Ready",
+    message: "Mungmee Mockup API is Ready.",
   });
 });
 
