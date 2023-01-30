@@ -7,6 +7,13 @@ app.use(express.json());
 app.get("/BNPL/checkcredit", (req, res) => {
   res.json({
     statusText: "200",
+    message: "API is Ready",
+  });
+});
+
+app.get("/BNPL/checkcredit", (req, res) => {
+  res.json({
+    statusText: "200",
     message: "OK",
     result: {
       customerID: "MGM-011956",
